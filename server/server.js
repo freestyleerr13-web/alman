@@ -38,6 +38,16 @@ app.use(helmet({
   referrerPolicy: { policy: "strict-origin-when-cross-origin" }
 }));
 
+app.use((req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  res.setHeader("X-Frame-Options", "DENY");
+  if (req.path.startsWith("/images/")) {
+    res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+  }
+  next();
+});
+
 app.use(cors({
   origin(origin, callback) {
     if (!origin || origin === APP_ORIGIN) return callback(null, true);
