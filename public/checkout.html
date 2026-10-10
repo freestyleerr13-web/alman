@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f1f2">
+  <title>Checkout | Saanjh Beauty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
+  <script src="checkout.js" defer></script>
+</head>
+<body>
+  <header class="bar"><div class="wrap"><a class="logo" href="index.html" style="color:inherit;text-decoration:none">Saanjh<i>.</i></a><a class="link" href="index.html#shop">Continue shopping</a></div></header>
+  <main class="wrap page-main">
+    <h1 class="page-title">Checkout</h1>
+    <p class="page-lead">Your details are used only to fulfil this order. Card details are entered securely in Razorpay Checkout and never reach this store.</p>
+    <div class="checkout-layout">
+      <form class="panel" id="checkout-form" novalidate>
+        <section class="form-section" aria-labelledby="contact-title">
+          <h2 id="contact-title">Contact details</h2>
+          <div class="form-grid">
+            <div class="field full"><label for="name">Full name</label><input id="name" name="name" autocomplete="name" maxlength="100" required aria-describedby="name-error"><p class="field-error" id="name-error"></p></div>
+            <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" required aria-describedby="email-error"><p class="field-error" id="email-error"></p></div>
+            <div class="field"><label for="phone">Indian mobile number</label><input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" pattern="[6-9][0-9]{9}" maxlength="10" required aria-describedby="phone-error"><p class="field-error" id="phone-error"></p></div>
+          </div>
+        </section>
+        <section class="form-section" aria-labelledby="address-title">
+          <h2 id="address-title">Shipping address</h2>
+          <div class="form-grid">
+            <div class="field full"><label for="line1">Address line 1</label><input id="line1" name="line1" autocomplete="address-line1" maxlength="160" required aria-describedby="line1-error"><p class="field-error" id="line1-error"></p></div>
+            <div class="field full"><label for="line2">Address line 2 <span class="muted">(optional)</span></label><input id="line2" name="line2" autocomplete="address-line2" maxlength="160" aria-describedby="line2-error"><p class="field-error" id="line2-error"></p></div>
+            <div class="field"><label for="city">City</label><input id="city" name="city" autocomplete="address-level2" maxlength="80" required aria-describedby="city-error"><p class="field-error" id="city-error"></p></div>
+            <div class="field"><label for="state">State / union territory</label><select id="state" name="state" autocomplete="address-level1" required aria-describedby="state-error"><option value="">Choose state</option></select><p class="field-error" id="state-error"></p></div>
+            <div class="field"><label for="pin">PIN code</label><input id="pin" name="pin" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{6}" maxlength="6" required aria-describedby="pin-error"><p class="field-error" id="pin-error"></p></div>
+          </div>
+        </section>
+        <section class="form-section" aria-labelledby="payment-title">
+          <h2 id="payment-title">Payment</h2>
+          <div class="payment-options">
+            <label class="payment-option"><input type="radio" name="payment" value="online" checked><span><strong>Pay online</strong><small>UPI, cards, netbanking and wallets via Razorpay secure checkout.</small></span></label>
+            <label class="payment-option"><input type="radio" name="payment" value="cod"><span><strong>Cash on delivery</strong><small>Pay in cash when your order arrives.</small></span></label>
+          </div>
+        </section>
+        <p class="form-error" id="form-error" role="alert" aria-live="polite"></p>
+        <div class="checkout-actions"><button class="btn" type="submit" id="pay-button">Continue to payment</button><p class="muted" id="working" role="status" aria-live="polite"></p><button class="link" type="button" id="verify-retry" hidden>Retry payment confirmation</button></div>
+      </form>
+      <aside class="panel checkout-summary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Order summary</h2>
+        <div class="summary-list" id="summary-items"></div>
+        <div class="summary-totals">
+          <div class="summary-row"><span>Subtotal</span><span id="subtotal"></span></div>
+          <div class="summary-row"><span>Shipping</span><span>Free</span></div>
+          <div class="summary-row total-row"><span>Total</span><span id="total"></span></div>
+          <p class="gst-note">Prices include GST.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <footer><div class="wrap"><span>© 2026 Saanjh Beauty</span><nav aria-label="Policies" class="footer-links"><a href="shipping.html">Shipping</a><a href="returns.html">Returns &amp; refunds</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav></div></footer>
+</body>
+</html>

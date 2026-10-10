@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saanjh Beauty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="hl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0.6"/><stop offset="0.4" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.3"/></linearGradient>
+  <radialGradient id="gl" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#fff" stop-opacity="0.55"/><stop offset="0.5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.28"/></radialGradient>
+</defs></svg>
+<header class="bar">
+  <div class="wrap">
+    <div class="logo">Saanjh<i>.</i></div>
+    <nav class="nav" aria-label="Main">
+      <a href="#shop">Shop</a>
+      <a href="#promise">Our promise</a>
+    </nav>
+    <div class="header-actions">
+      <button class="demo-signin" id="security-signin" type="button">Sign in</button>
+      <button class="demo-signout" id="security-signout" type="button" hidden>Sign out</button>
+      <span class="signed-in-label" id="signed-in-label" hidden></span>
+      <button class="cart-btn" id="open-cart" aria-label="Open cart">Cart <b id="count">0</b></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <div>
+      <div class="eyebrow">Makeup, skincare and hair accessories</div>
+      <h1>Colour made for the hour <em id="hero-word">after sunset</em>.</h1>
+      <p>Lip crayons, kajal, skin tints and serums, mixed for warm and deep undertones. Pick a shade on the right and see it before you add it to your cart.</p>
+      <div class="cta-row">
+        <a class="btn" href="#shop">Shop all products</a>
+        <a class="link" href="#promise">What we leave out</a>
+      </div>
+    </div>
+    <div class="stage" aria-label="Lip shade preview">
+      <div class="stage-top"><span>Matte Lip Crayon</span><span id="shade-price">₹649</span></div>
+      <div class="preview" id="preview"><span id="shade-name">Anar</span></div>
+      <div class="swatches" id="swatches" role="group" aria-label="Choose a shade"></div>
+      <div class="shade-meta" id="shade-meta"></div>
+    </div>
+  </section>
+
+  <section class="wrap banner-wrap">
+    <div class="banner" style="--photo: url(images/banner.jpg)" role="img" aria-label="Lipsticks, serum, nail polish, brushes and a lip palette">
+      <div class="banner-copy">
+        <div class="eyebrow">New this season</div>
+        <h2>The festive beauty edit</h2>
+        <p>Lips, glow and brushes picked for Diwali and wedding season.</p>
+        <a class="btn" href="#shop">Shop the edit</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap shop" id="shop">
+    <div class="shop-head">
+      <h2>The shop</h2>
+      <div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="promise" id="promise">
+    <div class="wrap">
+      <div><h4>Dermatologist reviewed</h4><p>Every formula is tested on sensitive skin before it is launched.</p></div>
+      <div><h4>No parabens or mineral oil</h4><p>The full ingredient list is printed on every box.</p></div>
+      <div><h4>Shade swap in 7 days</h4><p>If a tint does not match, we exchange it once at no charge.</p></div>
+      <div><h4>Cruelty free</h4><p>We never test on animals, and neither do our suppliers.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Saanjh Beauty. Sample storefront with example products.</span>
+    <nav aria-label="Policies" class="footer-links">
+      <a href="shipping.html">Shipping</a>
+      <a href="returns.html">Returns &amp; refunds</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+      <a href="admin.html">Admin</a>
+      <a href="#" id="security-demo-link">Security demo</a>
+    </nav>
+    <span>Prices in INR, inclusive of GST.</span>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Shopping cart">
+  <div class="drawer-head"><h2>Your cart</h2><button class="x" id="close-cart" aria-label="Close cart">&times;</button></div>
+  <div class="lines" id="lines"></div>
+  <div class="total"><span>Total</span><b class="price" id="total">₹0</b></div>
+  <button class="btn block" id="checkout">Checkout</button>
+</aside>
+<div class="toast" id="toast" hidden></div>
+
+<dialog class="security-dialog" id="auth-dialog" aria-labelledby="auth-title">
+  <div class="security-dialog-head">
+    <div><div class="eyebrow">Local browser demo</div><h2 id="auth-title">Sign in</h2></div>
+    <button class="x" type="button" data-close-dialog="auth-dialog" aria-label="Close sign in">&times;</button>
+  </div>
+  <p class="demo-notice">Security Demo — front-end only. Demo accounts are stored in this browser, not on a server. Do not use a real password.</p>
+  <div class="auth-tabs" role="tablist" aria-label="Account actions">
+    <button type="button" class="auth-tab" id="signin-tab" role="tab" aria-selected="true" aria-controls="signin-panel">Sign in</button>
+    <button type="button" class="auth-tab" id="signup-tab" role="tab" aria-selected="false" aria-controls="signup-panel">Sign up</button>
+  </div>
+  <section id="signin-panel" role="tabpanel" aria-labelledby="signin-tab">
+    <form id="signin-form" novalidate>
+      <div class="demo-field"><label for="signin-email">Email</label><input id="signin-email" type="email" autocomplete="username" maxlength="254" required></div>
+      <div class="demo-field"><label for="signin-password">Password</label><div class="password-row"><input id="signin-password" type="password" autocomplete="current-password" required><button class="show-password" type="button" data-password-target="signin-password" aria-pressed="false">Show</button></div></div>
+      <p class="demo-error" id="signin-message" role="alert" aria-live="polite"></p>
+      <p class="demo-status" id="attempt-status" aria-live="polite"></p>
+      <button class="btn block" type="submit" id="signin-submit">Sign in</button>
+    </form>
+  </section>
+  <section id="signup-panel" role="tabpanel" aria-labelledby="signup-tab" hidden>
+    <form id="signup-form" novalidate>
+      <div class="demo-field"><label for="signup-email">Email</label><input id="signup-email" type="email" autocomplete="username" maxlength="254" required></div>
+      <div class="demo-field"><label for="signup-password">Password</label><div class="password-row"><input id="signup-password" type="password" autocomplete="new-password" required aria-describedby="password-rules"><button class="show-password" type="button" data-password-target="signup-password" aria-pressed="false">Show</button></div></div>
+      <div class="strength-meter" role="meter" aria-label="Password strength" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><span id="strength-fill"></span></div>
+      <ul class="password-rules" id="password-rules">
+        <li data-rule="length">At least 8 characters</li>
+        <li data-rule="upper">An uppercase letter</li>
+        <li data-rule="lower">A lowercase letter</li>
+        <li data-rule="number">A number</li>
+        <li data-rule="symbol">A symbol</li>
+      </ul>
+      <p class="demo-error" id="signup-message" role="alert" aria-live="polite"></p>
+      <button class="btn block" type="submit" id="signup-submit">Create demo account</button>
+    </form>
+  </section>
+</dialog>
+
+<dialog class="security-dialog security-panel" id="security-dialog" aria-labelledby="security-title">
+  <div class="security-dialog-head">
+    <div><div class="eyebrow">Classroom walkthrough</div><h2 id="security-title">Security Demo</h2></div>
+    <button class="x" type="button" data-close-dialog="security-dialog" aria-label="Close security demo">&times;</button>
+  </div>
+  <p class="demo-notice"><strong>Front-end only demonstration.</strong> Account data and lockout state live in localStorage and can be inspected or changed by anyone using this browser. This is not production authentication.</p>
+  <div class="demo-explainer">
+    <h3>What this demonstrates</h3>
+    <ul>
+      <li>PBKDF2 with SHA-256, a random per-account salt and 150,000 iterations; the plain password is not stored.</li>
+      <li>Generic sign-in failure messages, three-attempt lockout, and a visible 30-second countdown.</li>
+      <li>A two-minute inactivity timeout with a 15-second warning.</li>
+      <li>Reviews are rendered with <code>textContent</code>, so entered markup is displayed as text.</li>
+    </ul>
+  </div>
+  <section class="review-demo" aria-labelledby="review-title">
+    <h3 id="review-title">Input safety: write a review</h3>
+    <label class="demo-field" for="review-text">Your review</label>
+    <textarea id="review-text" rows="3" maxlength="500" placeholder="Try typing HTML markup to see it displayed as text."></textarea>
+    <button class="btn" type="button" id="submit-review">Post review</button>
+    <h4>Review preview</h4>
+    <p class="review-output" id="review-output" aria-live="polite">Your review will appear here.</p>
+  </section>
+</dialog>
+<div class="session-warning" id="session-warning" role="status" aria-live="assertive" hidden></div>
+
+<script src="script.js"></script>
+</body>
+</html>

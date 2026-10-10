@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order admin | Saanjh Beauty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <header class="bar"><div class="wrap"><a class="logo" href="index.html" style="color:inherit;text-decoration:none">Saanjh<i>.</i></a><a class="link" href="index.html">Storefront</a></div></header>
+  <main class="wrap page-main">
+    <h1 class="page-title">Order admin</h1>
+    <p class="page-lead">Protected with HTTP Basic authentication. Sign in with username <code>admin</code> and the server's ADMIN_PASSWORD.</p>
+    <p class="admin-message" id="admin-message" role="status" aria-live="polite"></p>
+    <div class="panel admin-table-wrap"><table class="admin-table"><thead><tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Created</th><th>Actions</th></tr></thead><tbody id="orders"></tbody></table></div>
+  </main>
+  <footer><div class="wrap"><span>© 2026 Saanjh Beauty</span></div></footer>
+</body>
+</html>
